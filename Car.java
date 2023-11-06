@@ -1,15 +1,15 @@
 import java.awt.*;
 
 public abstract class Car implements Movable{
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
+    protected int nrDoors; // Number of doors on the car
+    protected double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
+    protected Color color; // Color of the car
+    protected String modelName; // The car model name
 
-    public int currentDirection;
-    public int xPosition;
-    public int yPosition;
+    protected int currentDirection;
+    protected int xPosition;
+    protected int yPosition;
 
 
     protected Car(int nrDoors, double enginePower, Color color, String modelName) {
@@ -36,8 +36,6 @@ public abstract class Car implements Movable{
             xPosition -= currentSpeed;
     }
 
-
-
     @Override
     public void turnRight() {
         currentDirection += 1;
@@ -48,23 +46,23 @@ public abstract class Car implements Movable{
         currentDirection -= 1;
     }
 
-
-    private int getNrDoors(){
+    protected int getNrDoors(){
         return nrDoors;
     }
-    private double getEnginePower(){
+
+    protected double getEnginePower(){
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    protected double getCurrentSpeed(){
         return currentSpeed;
     }
 
-    private Color getColor(){
+    protected Color getColor(){
         return color;
     }
 
-    private void setColor(Color clr){
+    protected void setColor(Color clr){
         color = clr;
     }
 
@@ -76,11 +74,9 @@ public abstract class Car implements Movable{
         currentSpeed = 0;
     }
 
+    protected abstract void incrementSpeed(double amount);
 
-
-    public abstract void incrementSpeed(double amount);
-
-    public abstract void decrementSpeed(double amount);
+    protected abstract void decrementSpeed(double amount);
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
@@ -92,4 +88,3 @@ public abstract class Car implements Movable{
         decrementSpeed(amount);
     }
 }
-

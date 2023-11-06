@@ -2,9 +2,9 @@ import java.awt.*;
 
 public class Saab95 extends Car{
 
-    public boolean turboOn;
+    private boolean turboOn;
 
-    public Saab95(){
+    private Saab95(){
         super(2, 125, Color.red, "Saab95");
 	    turboOn = false;
     }
@@ -23,13 +23,11 @@ public class Saab95 extends Car{
         return enginePower * 0.01 * turbo;
     }
 
-    public void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
-    public void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
-
-    public static void main(String[] args){}
 }
