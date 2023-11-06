@@ -12,14 +12,14 @@ public abstract class Car implements Movable{
     public int yPosition;
 
 
-    public Car(int nrOfDoors, double enginePow, Color colour, String nameOfCar) {
+    protected Car(int nrDoors, double enginePower, Color color, String modelName) {
         xPosition = 0;
         yPosition = 0;
         currentDirection = 0;
-        nrDoors = nrOfDoors;
-        enginePower = enginePow;
-        color = colour;
-        modelName = nameOfCar;
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
         stopEngine();
     }
 
