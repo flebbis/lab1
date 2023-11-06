@@ -31,13 +31,13 @@ public class test1 {
     @Test //Should work, doesn't.
     public void gas(){
         this.saab.gas(10);
-        assertEquals(12.5,this.saab.currentSpeed);
+        assertTrue(12.5 == this.saab.currentSpeed);
     }
 
     @Test
     public void brake(){
         this.saab.brake(10);
-        assertEquals(-12.5,this.saab.currentSpeed);
+        assertTrue(-12.5 == this.saab.currentSpeed);
     }
 
 }
