@@ -18,8 +18,8 @@ public abstract class Car implements Movable{
         currentDirection = 0;
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
-        this.color = color;
         this.modelName = modelName;
+        setColor(color);
         stopEngine();
     }
 
