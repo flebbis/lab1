@@ -31,10 +31,4 @@ public class Saab95 extends Car{
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 
-    public static void main(String[] args) {
-        Saab95 saab = new Saab95();
-        System.out.println(saab.getCurrentSpeed());
-        saab.gas(10);
-        System.out.println(saab.getCurrentSpeed());
-    }
 }

@@ -18,26 +18,84 @@ public class test1 {
     public void turboOnTest() {
 
         this.saab.setTurboOn();
-
         this.saab.gas(10);
 
+        Saab95 saab1 = new Saab95();
+        saab1.gas(10);
+
+        assertTrue(saab1.currentSpeed != saab.currentSpeed);
+    }
+
+    @Test
+    public void turboOffTest() {
+
+        this.saab.setTurboOn();
         this.saab.setTurboOff();
 
         this.saab.gas(10);
 
+        Saab95 saab1 = new Saab95();
 
+        saab1.gas(10);
+
+        assertTrue(saab1.currentSpeed == saab.currentSpeed);
     }
 
     @Test //Should work, doesn't.
-    public void gas(){
+    public void gasVolvoTest(){
+        this.volvo.gas(10);
+        assertTrue(12.5 == this.volvo.getCurrentSpeed());
+    }
+
+    @Test
+    public void brakeVolvoTest(){
+        this.volvo.brake(10);
+        assertTrue(0 == this.volvo.currentSpeed);
+    }
+
+    @Test //Should work, doesn't.
+    public void gasSaabTest(){
         this.saab.gas(10);
         assertTrue(12.5 == this.saab.currentSpeed);
     }
 
     @Test
-    public void brake(){
+    public void brakeSaabTest(){
         this.saab.brake(10);
         assertTrue(-12.5 == this.saab.currentSpeed);
     }
+
+    @Test
+    public void getEngineTest() {
+
+        assertTrue(volvo.getEnginePower() == 100);
+    }
+
+    @Test
+    public void getNrDoorsTest() {
+
+        assertEquals(4, volvo.getNrDoors());
+    }
+
+    @Test
+    public void startEngineTest() {
+        volvo.startEngine();
+        assertTrue(volvo.getCurrentSpeed() == 0.1);
+    }
+
+    @Test
+    public void setColorTest(){
+        volvo.setColor(Color.blue);
+        assertTrue(volvo.getColor() == Color.blue);
+    }
+
+    @Test
+    public void moveTest() {}
+
+    @Test
+    public void turnRightTest() {}
+
+    @Test
+    public void turnLeftTest() {}
 
 }
