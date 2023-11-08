@@ -9,7 +9,8 @@ public class test1 {
     private Volvo240 volvo;
 
     @Before
-    public void init(){
+    public void init()
+    {
         saab = new Saab95();
         volvo = new Volvo240();
     }
@@ -20,7 +21,8 @@ public class test1 {
         this.saab.setTurboOn();
         Saab95 saab1 = new Saab95();
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
             saab1.gas(1);
         }
@@ -29,13 +31,15 @@ public class test1 {
     }
 
     @Test
-    public void turboOffTest() {
+    public void turboOffTest()
+    {
 
         this.saab.setTurboOn();
         this.saab.setTurboOff();
         Saab95 saab1 = new Saab95();
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
             saab1.gas(1);
         }
@@ -44,7 +48,8 @@ public class test1 {
     }
 
     @Test
-    public void gasVolvoTest(){
+    public void gasVolvoTest()
+    {
         this.volvo.gas(1);
         assertTrue(1.25 == this.volvo.getCurrentSpeed());
     }
@@ -110,7 +115,8 @@ public class test1 {
     {
         saab.turnLeft();
         saab.startEngine();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
         }
         saab.move();
@@ -122,7 +128,8 @@ public class test1 {
     {
         saab.turnRight();
         saab.startEngine();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
         }
         saab.move();
@@ -134,7 +141,8 @@ public class test1 {
         saab.turnLeft();
         saab.turnLeft();
         saab.startEngine();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
         }
         saab.move();
@@ -144,7 +152,8 @@ public class test1 {
     @Test
     public void movePosYTest()
     {
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
         }
         saab.move();
