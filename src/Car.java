@@ -1,3 +1,4 @@
+import javax.swing.text.Position;
 import java.awt.*;
 
 public abstract class Car implements Movable
@@ -54,6 +55,15 @@ public abstract class Car implements Movable
     public void turnLeft()
     {
         currentDirection -= 1;
+    }
+    protected double getxPosition()
+    {
+        return yPosition;
+    }
+
+    protected double getyPosition()
+    {
+        return xPosition;
     }
 
     protected int getNrDoors()
