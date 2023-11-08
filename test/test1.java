@@ -174,11 +174,13 @@ public class test1
     public void brakeOutOfRange()
     {
         saab.brake(1.5);
+        assertTrue(saab.currentSpeed == 0);
     }
     @Test
     public void gasOutOfRange()
     {
         saab.gas(1.5);
+        assertTrue(saab.currentSpeed == 0);
     }
     @Test
     public void gasBigSpeed()
