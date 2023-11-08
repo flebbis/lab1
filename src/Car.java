@@ -26,15 +26,22 @@ public abstract class Car implements Movable{
     @Override
     public void move()
     {
-        if (Math.abs(currentDirection % 4) == 0)
-            yPosition += currentSpeed;
-        else if (Math.abs(currentDirection % 4) == 2)
-            yPosition -= currentSpeed;
-        else if (currentDirection % 4 == (-1)) //No Math.abs because -1 % 4 == -1 for some reason...
-            xPosition -= currentSpeed;
-        else if (Math.abs(currentDirection % 4) == 1)
-            xPosition += currentSpeed;
 
+        switch (((currentDirection % 4) + 4) % 4)
+        {
+            case 0:
+                yPosition += currentSpeed;
+                break;
+            case 1:
+                xPosition += currentSpeed;
+                break;
+            case 2:
+                yPosition -= currentSpeed;
+                break;
+            case 3:
+                xPosition -= currentSpeed;
+                break;
+        }
     }
 
     @Override
@@ -79,9 +86,20 @@ public abstract class Car implements Movable{
 
     protected abstract void decrementSpeed(double amount);
 
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
+    public void gas(double amount)
+    {
+        if (amount > 0 && amount <= 1)
+        {
+            incrementSpeed(amount);        //checks if this surpasses the range
+            if (currentSpeed > enginePower)
+            {
+                decrementSpeed(amount);
+            }
+        }
+        else
+        {
+            System.out.println("Amount out of range");
+        }
     }
 
     // TODO fix this method according to lab pm

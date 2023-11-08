@@ -95,10 +95,10 @@ public class test1 {
     {
         saab.turnLeft();
         saab.startEngine();
-        saab.gas(10);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+        }
         saab.move();
-        System.out.println(saab.xPosition);
-        System.out.println(-(saab.getCurrentSpeed()));
         assertTrue(saab.xPosition == -(saab.getCurrentSpeed()));
     }
 
@@ -129,5 +129,24 @@ public class test1 {
         saab.move();
         assertTrue(saab.yPosition == (saab.getCurrentSpeed()));
     }
+    @Test
+    public void breakNegSpeed()
+    {
+        saab.brake(1);
+        assertTrue(saab.currentSpeed == 0);
+    }
 
+    @Test
+    public void gasBigSpeed()
+    {
+        while (saab.currentSpeed < saab.enginePower)
+        {
+            saab.gas(1);
+        }
+        saab.gas(1);
+        saab.gas(1);
+        saab.gas(1);
+        assertTrue(saab.currentSpeed <= saab.enginePower);
+
+    }
 }
