@@ -8,8 +8,8 @@ public abstract class Car implements Movable{
     protected String modelName; // The car model name
 
     protected int currentDirection;
-    protected int xPosition;
-    protected int yPosition;
+    protected double xPosition;
+    protected double yPosition;
 
 
     protected Car(int nrDoors, double enginePower, Color color, String modelName) {
@@ -32,8 +32,7 @@ public abstract class Car implements Movable{
             yPosition -= currentSpeed;
         else if (currentDirection % 4 == 1)
             xPosition += currentSpeed;
-        else
-            xPosition -= currentSpeed;
+
     }
 
     @Override

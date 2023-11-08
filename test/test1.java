@@ -41,7 +41,7 @@ public class test1 {
         assertTrue(saab1.currentSpeed == saab.currentSpeed);
     }
 
-    @Test //Should work, doesn't.
+    @Test
     public void gasVolvoTest(){
         this.volvo.gas(10);
         assertTrue(12.5 == this.volvo.getCurrentSpeed());
@@ -89,13 +89,45 @@ public class test1 {
         assertTrue(volvo.getColor() == Color.blue);
     }
 
-    @Test
-    public void moveTest() {}
 
     @Test
-    public void turnRightTest() {}
+    public void moveNegativeXTest()
+    {
+        saab.turnLeft();
+        saab.startEngine();
+        saab.gas(10);
+        saab.move();
+        System.out.println(saab.xPosition);
+        System.out.println(-(saab.getCurrentSpeed()));
+        assertTrue(saab.xPosition == -(saab.getCurrentSpeed()));
+    }
 
     @Test
-    public void turnLeftTest() {}
+    public void movePosXTest()
+    {
+        saab.turnRight();
+        saab.startEngine();
+        saab.gas(10);
+        saab.move();
+        assertTrue(saab.xPosition == saab.getCurrentSpeed());
+    }
+    @Test
+    public void moveNegativeYTest()
+    {
+        saab.turnLeft();
+        saab.turnLeft();
+        saab.startEngine();
+        saab.gas(10);
+        saab.move();
+        assertTrue(saab.yPosition == -(saab.getCurrentSpeed()));
+    }
+
+    @Test
+    public void movePosYTest()
+    {
+        saab.gas(10);
+        saab.move();
+        assertTrue(saab.yPosition == (saab.getCurrentSpeed()));
+    }
 
 }
