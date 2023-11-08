@@ -27,59 +27,67 @@ public abstract class Car implements Movable
     @Override
     public void move()
     {
-
-        switch (((currentDirection % 4) + 4) % 4)
+        switch (((currentDirection % 4) + 4) % 4)    //converts negative modulus to positive
         {
-            case 0:
+            case 0: //0 is NORTH
                 yPosition += currentSpeed;
                 break;
-            case 1:
+            case 1: //1 is EAST
                 xPosition += currentSpeed;
                 break;
-            case 2:
+            case 2: //2 is SOUTH
                 yPosition -= currentSpeed;
                 break;
-            case 3:
+            case 3: //3 is WEST
                 xPosition -= currentSpeed;
                 break;
         }
     }
 
     @Override
-    public void turnRight() {
+    public void turnRight()
+    {
         currentDirection += 1;
     }
 
     @Override
-    public void turnLeft() {
+    public void turnLeft()
+    {
         currentDirection -= 1;
     }
 
-    protected int getNrDoors(){
+    protected int getNrDoors()
+    {
         return nrDoors;
     }
 
-    protected double getEnginePower(){
+    protected double getEnginePower()
+    {
         return enginePower;
     }
 
-    protected double getCurrentSpeed(){
+    protected double getCurrentSpeed()
+    {
         return currentSpeed;
     }
 
-    protected Color getColor(){
+    protected Color getColor()
+    {
         return color;
     }
 
-    public void setColor(Color clr){
+    public void setColor(Color clr)
+    {
         color = clr;
     }
 
-    public void startEngine(){
+    public void startEngine()
+    {
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void stopEngine()
+    {
         currentSpeed = 0;
     }
 

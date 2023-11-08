@@ -50,7 +50,8 @@ public class test1 {
     }
 
     @Test
-    public void brakeVolvoTest(){
+    public void brakeVolvoTest()
+    {
         for (int i = 0; i < 10; i++){
             this.volvo.gas(1);
         }
@@ -59,16 +60,20 @@ public class test1 {
     }
 
     @Test //Should work, doesn't.
-    public void gasSaabTest(){
-        for (int i = 0; i < 10; i++){
+    public void gasSaabTest()
+    {
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
         }
         assertTrue(12.5 == this.saab.currentSpeed);
     }
 
     @Test
-    public void brakeSaabTest(){
-        for (int i = 0; i < 10; i++){
+    public void brakeSaabTest()
+    {
+        for (int i = 0; i < 10; i++)
+        {
             this.saab.gas(1);
         }
         this.saab.brake(1);
@@ -146,12 +151,21 @@ public class test1 {
         assertTrue(saab.yPosition == (saab.getCurrentSpeed()));
     }
     @Test
-    public void breakNegSpeed()
+    public void brakeNegSpeed()
     {
         saab.brake(1);
         assertTrue(saab.currentSpeed == 0);
     }
-
+    @Test
+    public void brakeOutOfRange()
+    {
+        saab.brake(1.5);
+    }
+    @Test
+    public void gasOutOfRange()
+    {
+        saab.gas(1.5);
+    }
     @Test
     public void gasBigSpeed()
     {
