@@ -26,11 +26,13 @@ public abstract class Car implements Movable{
     @Override
     public void move()
     {
-        if (currentDirection % 4 == 0)
+        if (Math.abs(currentDirection % 4) == 0)
             yPosition += currentSpeed;
-        else if (currentDirection % 4 == 2)
+        else if (Math.abs(currentDirection % 4) == 2)
             yPosition -= currentSpeed;
-        else if (currentDirection % 4 == 1)
+        else if (currentDirection % 4 == (-1)) //No Math.abs because -1 % 4 == -1 for some reason...
+            xPosition -= currentSpeed;
+        else if (Math.abs(currentDirection % 4) == 1)
             xPosition += currentSpeed;
 
     }
