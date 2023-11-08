@@ -15,13 +15,15 @@ public class test1 {
     }
 
     @Test
-    public void turboOnTest() {
-
+    public void turboOnTest()
+    {
         this.saab.setTurboOn();
-        this.saab.gas(10);
-
         Saab95 saab1 = new Saab95();
-        saab1.gas(10);
+
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+            saab1.gas(1);
+        }
 
         assertTrue(saab1.currentSpeed != saab.currentSpeed);
     }
@@ -31,12 +33,12 @@ public class test1 {
 
         this.saab.setTurboOn();
         this.saab.setTurboOff();
-
-        this.saab.gas(10);
-
         Saab95 saab1 = new Saab95();
 
-        saab1.gas(10);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+            saab1.gas(1);
+        }
 
         assertTrue(saab1.currentSpeed == saab.currentSpeed);
     }
@@ -49,20 +51,28 @@ public class test1 {
 
     @Test
     public void brakeVolvoTest(){
-        this.volvo.brake(10);
-        assertTrue(0 == this.volvo.currentSpeed);
+        for (int i = 0; i < 10; i++){
+            this.volvo.gas(1);
+        }
+        this.volvo.brake(1);
+        assertTrue(11.25 == this.volvo.currentSpeed);
     }
 
     @Test //Should work, doesn't.
     public void gasSaabTest(){
-        this.saab.gas(10);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+        }
         assertTrue(12.5 == this.saab.currentSpeed);
     }
 
     @Test
     public void brakeSaabTest(){
-        this.saab.brake(10);
-        assertTrue(-12.5 == this.saab.currentSpeed);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+        }
+        this.saab.brake(1);
+        assertTrue(11.25 == this.saab.currentSpeed);
     }
 
     @Test
@@ -107,7 +117,9 @@ public class test1 {
     {
         saab.turnRight();
         saab.startEngine();
-        saab.gas(10);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+        }
         saab.move();
         assertTrue(saab.xPosition == saab.getCurrentSpeed());
     }
@@ -117,7 +129,9 @@ public class test1 {
         saab.turnLeft();
         saab.turnLeft();
         saab.startEngine();
-        saab.gas(10);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+        }
         saab.move();
         assertTrue(saab.yPosition == -(saab.getCurrentSpeed()));
     }
@@ -125,7 +139,9 @@ public class test1 {
     @Test
     public void movePosYTest()
     {
-        saab.gas(10);
+        for (int i = 0; i < 10; i++){
+            this.saab.gas(1);
+        }
         saab.move();
         assertTrue(saab.yPosition == (saab.getCurrentSpeed()));
     }

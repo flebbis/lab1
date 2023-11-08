@@ -102,8 +102,19 @@ public abstract class Car implements Movable{
         }
     }
 
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    public void brake(double amount)
+    {
+        if (amount > 0 && amount <= 1)
+        {
+            decrementSpeed(amount);    //checks if this surpasses the range
+            if (currentSpeed < 0)
+            {
+                incrementSpeed(amount);
+            }
+        }
+        else
+        {
+            System.out.println("Amount out of range");
+        }
     }
 }
