@@ -195,4 +195,16 @@ public class test1
         assertTrue(saab.currentSpeed <= saab.enginePower);
 
     }
+
+    @Test
+    public void getxPositionTest()
+    {
+        assertTrue(saab.getxPosition() == 0);
+    }
+
+    @Test
+    public void getYPositionTest()
+    {
+       assertTrue(saab.getyPosition() == 0);
+    }
 }
