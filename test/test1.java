@@ -45,8 +45,8 @@ public class test1 {
 
     @Test
     public void gasVolvoTest(){
-        this.volvo.gas(10);
-        assertTrue(12.5 == this.volvo.getCurrentSpeed());
+        this.volvo.gas(1);
+        assertTrue(1.25 == this.volvo.getCurrentSpeed());
     }
 
     @Test
