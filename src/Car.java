@@ -1,4 +1,3 @@
-import javax.swing.text.Position;
 import java.awt.*;
 
 public abstract class Car implements Movable

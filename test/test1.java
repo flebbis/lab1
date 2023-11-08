@@ -114,7 +114,6 @@ public class test1
         assertTrue(volvo.getColor() == Color.blue);
     }
 
-
     @Test
     public void moveNegativeXTest()
     {
@@ -140,6 +139,7 @@ public class test1
         saab.move();
         assertTrue(saab.xPosition == saab.getCurrentSpeed());
     }
+
     @Test
     public void moveNegativeYTest()
     {
@@ -164,24 +164,28 @@ public class test1
         saab.move();
         assertTrue(saab.yPosition == (saab.getCurrentSpeed()));
     }
+
     @Test
     public void brakeNegSpeed()
     {
         saab.brake(1);
         assertTrue(saab.currentSpeed == 0);
     }
+
     @Test
     public void brakeOutOfRange()
     {
         saab.brake(1.5);
         assertTrue(saab.currentSpeed == 0);
     }
+
     @Test
     public void gasOutOfRange()
     {
         saab.gas(1.5);
         assertTrue(saab.currentSpeed == 0);
     }
+
     @Test
     public void gasBigSpeed()
     {
