@@ -3,7 +3,8 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
-public class test1 {
+public class test1
+{
 
     private Saab95 saab;
     private Volvo240 volvo;
@@ -86,25 +87,29 @@ public class test1 {
     }
 
     @Test
-    public void getEngineTest() {
+    public void getEngineTest()
+    {
 
         assertTrue(volvo.getEnginePower() == 100);
     }
 
     @Test
-    public void getNrDoorsTest() {
+    public void getNrDoorsTest()
+    {
 
         assertEquals(4, volvo.getNrDoors());
     }
 
     @Test
-    public void startEngineTest() {
+    public void startEngineTest()
+    {
         volvo.startEngine();
         assertTrue(volvo.getCurrentSpeed() == 0.1);
     }
 
     @Test
-    public void setColorTest(){
+    public void setColorTest()
+    {
         volvo.setColor(Color.blue);
         assertTrue(volvo.getColor() == Color.blue);
     }
