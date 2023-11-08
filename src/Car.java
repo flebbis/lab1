@@ -57,12 +57,12 @@ public abstract class Car implements Movable
     }
     protected double getxPosition()
     {
-        return yPosition;
+        return xPosition;
     }
 
     protected double getyPosition()
     {
-        return xPosition;
+        return yPosition;
     }
 
     protected int getNrDoors()
