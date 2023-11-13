@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public class AutomobileTransport extends Truck
 {
-    public Car[] storage = new Car[2];
+
 
 
     public AutomobileTransport()
     {
-        super(2,250, Color.blue, "Långtradare");
+        super(2,250, Color.blue, "Långtradare", 2);
     }
     public void changeRamp(double bite)
     {

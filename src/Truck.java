@@ -3,10 +3,12 @@ import java.awt.*;
 public abstract class Truck extends Vehicle
 {
     protected double currentDegree;
+    public Car[] storage;
 
-    public Truck(int nrDoors, double enginePower, Color color, String modelName)
+    public Truck(int nrDoors, double enginePower, Color color, String modelName, int load)
     {
         super(nrDoors, enginePower, color, modelName);
+        storage = new Car[load];
     }
 
 
