@@ -8,12 +8,16 @@ public class test1
 
     private Saab95 saab;
     private Volvo240 volvo;
+    private Scania scania;
+    private AutomobileTransport loader;
 
     @Before
     public void init()
     {
         saab = new Saab95();
         volvo = new Volvo240();
+        scania = new Scania();
+        loader = new AutomobileTransport();
     }
 
     @Test
@@ -210,5 +214,47 @@ public class test1
     public void getYPositionTest()
     {
        assertTrue(saab.getyPosition() == 0);
+    }
+
+//    @Test
+//    public void tiltUpFlatbedTest()
+//    {
+//        scania.tiltUpFlatbed(75);
+//        scania.tiltUpFlatbed(30);
+//        assertTrue(scania.getCurrentDegree() == 30);
+//    }
+//    @Test
+//    public void tiltUpFlatbedTestFail()
+//    {
+//        scania.tiltUpFlatbed(65);
+//        scania.incrementSpeed(0.5);
+//        assertTrue(scania.getCurrentSpeed() == 0);
+//    }
+//    @Test
+//    public void tiltDownFlatbedTest()
+//    {
+//        scania.tiltUpFlatbed(45);
+//        scania.tiltDownFlatbed(30);
+//        assertTrue(scania.getCurrentDegree() == 15);
+//    }
+//    @Test
+    public void incrementSpeedScaniaTest()
+    {
+        scania.gas(1);
+        System.out.println(scania.getCurrentSpeed());
+        assertTrue(scania.getCurrentSpeed() == 30);
+    }
+    @Test
+    public void decrementSpeedScaniaTest()
+    {
+        scania.incrementSpeed(30);
+        scania.decrementSpeed(15);
+        assertTrue(scania.getCurrentSpeed() == 15);
+    }
+    @Test
+    public void loadTest()
+    {
+        loader.load(saab);
+        System.out.println(loader.storage[0]);
     }
 }
