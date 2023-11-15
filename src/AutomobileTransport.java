@@ -6,7 +6,7 @@ public class AutomobileTransport extends Truck
 
     public AutomobileTransport()
     {
-        super(2,250, Color.blue, "Långtradare", 2);
+        super(2, 250, Color.blue, "Långtradare", 2);
     }
 
     public void flatbedChange(boolean rampActiveOrInactive)
@@ -20,9 +20,10 @@ public class AutomobileTransport extends Truck
             currentDegree = 0;
         }
     }
+
     public void load(Car car)
     {
-        if (getCurrentDegree() == 70) //  && sqrt(((car.getxPosition - this.getxPosition)**2) + ((car.getxposition - this.getxposition)**2)) < maxDistance
+        if (getCurrentDegree() == 70 && Math.sqrt((Math.pow(car.getxPosition() - this.getxPosition(), 2) + (Math.pow(car.getyPosition() - this.getyPosition(), 2)))) < 1)
         {
             for (int i = 0; i < storageCapacity; i++)
             {
@@ -34,11 +35,12 @@ public class AutomobileTransport extends Truck
             }
         }
     }
+
     public void unload()
     {
         if (getCurrentDegree() == 70)
         {
-            for (int i = storageCapacity - 1; i <= 0; i--)
+            for (int i = storage.length - 1; i >= 0; i--)
             {
                 if (storage[i] != null)
                 {
@@ -48,6 +50,7 @@ public class AutomobileTransport extends Truck
             }
         }
     }
+
 
     @Override
     public void move()

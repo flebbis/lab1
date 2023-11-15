@@ -261,4 +261,94 @@ public class test1
         System.out.println(loader.storage[0]);
         assertTrue(loader.storage[0] == saab);
     }
+
+    @Test
+    public void flatbedChange()
+    {
+        loader.flatbedChange(true);
+        loader.flatbedChange(false);
+        loader.flatbedChange(true);
+        assertTrue(loader.currentDegree == 70);
+    }
+
+    @Test
+    public void unloadTest()
+    {
+        loader.flatbedChange(true);
+        loader.load(saab);
+        System.out.println(loader.storage[0]);
+        loader.unload();
+        System.out.println(loader.storage[0]);
+        assertTrue(loader.storage[0] == null);
+    }
+    @Test
+    public void getStorageTest()
+    {
+        loader.load(saab);
+        assertTrue(loader.getStorage() == loader.storage);
+    }
+
+    @Test
+    public void moveNegativeXTestAutomobile()
+    {
+        loader.flatbedChange(true);
+        loader.load(saab);
+        loader.load(volvo);
+        loader.turnLeft();
+        loader.startEngine();
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        System.out.println(loader.xPosition);
+        System.out.println(saab.xPosition);
+        assertTrue(saab.getxPosition() == loader.xPosition);
+    }
+
+    @Test
+    public void movePosXTestAutomobile()
+    {
+        loader.turnRight();
+        loader.startEngine();
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        assertTrue(loader.xPosition == loader.getCurrentSpeed());
+    }
+
+    @Test
+    public void moveNegativeYTestAutomobile()
+    {
+        loader.turnLeft();
+        loader.turnLeft();
+        loader.startEngine();
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        assertTrue(loader.yPosition == -(loader.getCurrentSpeed()));
+    }
+
+    @Test
+    public void movePosYTestAutomobile()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        assertTrue(loader.yPosition == (loader.getCurrentSpeed()));
+    }
+
+    @Test
+    public void scaniarampchangewhenmovetest()
+    {
+        scania.gas(1);
+        scania.flatbedUp(70);
+    }
+
 }
