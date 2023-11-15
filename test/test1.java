@@ -216,45 +216,48 @@ public class test1
        assertTrue(saab.getyPosition() == 0);
     }
 
-//    @Test
-//    public void tiltUpFlatbedTest()
-//    {
-//        scania.tiltUpFlatbed(75);
-//        scania.tiltUpFlatbed(30);
-//        assertTrue(scania.getCurrentDegree() == 30);
-//    }
-//    @Test
-//    public void tiltUpFlatbedTestFail()
-//    {
-//        scania.tiltUpFlatbed(65);
-//        scania.incrementSpeed(0.5);
-//        assertTrue(scania.getCurrentSpeed() == 0);
-//    }
-//    @Test
-//    public void tiltDownFlatbedTest()
-//    {
-//        scania.tiltUpFlatbed(45);
-//        scania.tiltDownFlatbed(30);
-//        assertTrue(scania.getCurrentDegree() == 15);
-//    }
-//    @Test
+    @Test
+    public void tiltUpFlatbedTest()
+    {
+        scania.flatbedUp(75);
+        scania.flatbedUp(30);
+        assertTrue(scania.getCurrentDegree() == 30);
+    }
+    @Test
+    public void tiltUpFlatbedTestFail()
+    {
+        scania.flatbedUp(65);
+        scania.incrementSpeed(0.5);
+        assertTrue(scania.getCurrentSpeed() == 0);
+    }
+    @Test
+    public void tiltDownFlatbedTest()
+    {
+        scania.flatbedUp(45);
+        scania.flatbedDown(30);
+        assertTrue(scania.getCurrentDegree() == 15);
+    }
+    @Test
     public void incrementSpeedScaniaTest()
     {
         scania.gas(1);
         System.out.println(scania.getCurrentSpeed());
-        assertTrue(scania.getCurrentSpeed() == 30);
+        assertTrue(scania.getCurrentSpeed() == scania.speedFactor());
     }
     @Test
     public void decrementSpeedScaniaTest()
     {
-        scania.incrementSpeed(30);
-        scania.decrementSpeed(15);
-        assertTrue(scania.getCurrentSpeed() == 15);
+        scania.gas(1);
+        scania.gas(1);
+        scania.brake(1);
+        System.out.println(scania.getCurrentSpeed());
+        assertTrue(scania.getCurrentSpeed() == 4);
     }
     @Test
     public void loadTest()
     {
         loader.load(saab);
         System.out.println(loader.storage[0]);
+        assertTrue(loader.storage[0] == saab);
     }
 }

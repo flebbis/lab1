@@ -8,18 +8,17 @@ public class AutomobileTransport extends Truck
     {
         super(2,250, Color.blue, "Långtradare", 2);
     }
-    public void changeRamp(double bite)
+
+    public void flatbedChange(boolean rampActiveOrInactive)
     {
-        if (bite == 1)
+        if (rampActiveOrInactive)
         {
-            flatbedUp(70);
-        }
-        else if (bite == 0)
-        {
-            flatbedDown(70);
+            currentDegree = 70;
         }
         else
-            System.out.println("Only accepts the values 0 or 1. One being up 0 being down");
+        {
+            currentDegree = 0;
+        }
     }
     public void load(Car car)
     {
@@ -49,7 +48,36 @@ public class AutomobileTransport extends Truck
     }
 
     @Override
-    public void move()    // update the load aswell
-    {}
+    public void move()
+    {
+        switch (((currentDirection % 4) + 4) % 4)    //converts negative modulus to positive
+        {
+            case 0: //0 is NORTH
+                yPosition += currentSpeed;
+                break;
+            case 1: //1 is EAST
+                xPosition += currentSpeed;
+                break;
+            case 2: //2 is SOUTH
+                yPosition -= currentSpeed;
+                break;
+            case 3: //3 is WEST
+                xPosition -= currentSpeed;
+                break;
+        }
+        carOnTruckMover();
+    }
+
+    private void carOnTruckMover()
+    {
+        for (Car element : storage)
+        {
+            if (element != null)
+            {
+                element.setxPosition(this.getxPosition());
+                element.setyPosition(this.getyPosition());
+            }
+        }
+    }
 }
 

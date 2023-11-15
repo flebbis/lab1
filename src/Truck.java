@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Truck extends Vehicle implements flatbed
+public abstract class Truck extends Vehicle
 {
     protected double currentDegree;
     protected Car[] storage;
@@ -41,29 +41,6 @@ public abstract class Truck extends Vehicle implements flatbed
             System.out.println("lower the flatbed");
         }
 
-    }
-
-    public void flatbedUp(double amount)
-    {
-        if (getCurrentSpeed() == 0)
-        {
-            if (amount > 0 && (amount + getCurrentDegree()) <= 70)
-            {
-                currentDegree += amount;
-            }
-        }
-        else
-        {
-            System.out.println("Stop the truck before trying to unload");
-        }
-    }
-
-    public void flatbedDown(double amount)
-    {
-        if (amount > 0 && (getCurrentDegree() - amount > 0))
-        {
-            currentDegree -= amount;
-        }
     }
 
     @Override
