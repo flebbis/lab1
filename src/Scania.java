@@ -7,7 +7,6 @@ public class Scania extends Truck
     {
         super(2,200, Color.red,"Scania",0);
 
-        currentDegree = 0;
     }
 
 }

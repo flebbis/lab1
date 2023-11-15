@@ -3,17 +3,23 @@ import java.awt.*;
 public abstract class Truck extends Vehicle
 {
     protected double currentDegree;
-    public Car[] storage;
+    protected Car[] storage;
+    protected final int storageCapacity;
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName, int load)
     {
         super(nrDoors, enginePower, color, modelName);
-        storage = new Car[load];
+        currentDegree = 0;
+        storageCapacity = load;
+        storage = new Car[storageCapacity];
     }
 
+    public Car[] getStorage()
+    {
+        return storage;
+    }
 
-
-    private double speedFactor()
+    protected double speedFactor()
     {
         return enginePower * 0.02;
     }
