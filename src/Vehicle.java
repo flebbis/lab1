@@ -57,6 +57,7 @@ public abstract class Vehicle implements Movable
         {
             currentDirection -= 1;
         }
+
         public double getxPosition()
         {
             return xPosition;
@@ -66,6 +67,10 @@ public abstract class Vehicle implements Movable
         {
             return yPosition;
         }
+
+        public void setxPosition(double position) {xPosition = position;}
+
+        public void setyPosition(double position) {yPosition = position;}
 
         public int getNrDoors()
         {

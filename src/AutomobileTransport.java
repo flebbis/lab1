@@ -29,6 +29,7 @@ public class AutomobileTransport extends Truck
                 if (storage[i] == null)
                 {
                     storage[i] = car;
+                    carOnTruckMover(); //Så bilens position uppdateras
                 }
             }
         }
@@ -41,6 +42,7 @@ public class AutomobileTransport extends Truck
             {
                 if (storage[i] != null)
                 {
+                    storage[i].setyPosition(this.getyPosition() - 1);
                     storage[i] = null;
                 }
             }

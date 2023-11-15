@@ -256,6 +256,7 @@ public class test1
     @Test
     public void loadTest()
     {
+        loader.currentDegree = 70; //så vi kan lasta
         loader.load(saab);
         System.out.println(loader.storage[0]);
         assertTrue(loader.storage[0] == saab);
