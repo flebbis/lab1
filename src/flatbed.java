@@ -5,4 +5,5 @@ public interface flatbed
     void flatbedDown(double amount);
 
 
+    //useless
 }
