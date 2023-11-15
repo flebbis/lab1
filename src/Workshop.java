@@ -10,8 +10,8 @@ public class Workshop<AbritaryVehicle extends Vehicle>
 
     public Workshop(int capacity)
     {
-        this.type = type;
         this.capacity = capacity;
+        vehicles = new LinkedList<AbritaryVehicle>();
     }
 
     public LinkedList<AbritaryVehicle> getVehicles()
@@ -33,7 +33,8 @@ public class Workshop<AbritaryVehicle extends Vehicle>
 
     public AbritaryVehicle unLoad(AbritaryVehicle c)
     {
-
+        AbritaryVehicle vehicleToBeRemoved = vehicles.get(vehicles.indexOf(c));
+        vehicles.remove(c);
+        return vehicleToBeRemoved;
     }
 }
-
