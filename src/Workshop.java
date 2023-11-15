@@ -1,29 +1,37 @@
-public class Workshop
-{
-    protected Vehicle[] type;
-    protected int capacity;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-    public Workshop(Vehicle[] type, int capacity)
+public class Workshop<AbritaryVehicle extends Vehicle>
+{
+    private LinkedList<AbritaryVehicle> vehicles;
+    private int capacity;
+
+
+    public Workshop(int capacity)
     {
         this.type = type;
         this.capacity = capacity;
     }
 
-
-
-    public void load(Vehicle fordon)
+    public LinkedList<AbritaryVehicle> getVehicles()
     {
-        for (int i = 0; i < type.length; i++)
-        {
-//            if (fordon.getClass() == type[i])
-            {
-
-            }
-        }
+        return vehicles;
     }
 
 
-    public void unLoad(Vehicle fordon)
+    public void load(AbritaryVehicle c)
+    {
+        if (vehicles.size() <= this.capacity)
+        {
+            vehicles.add(c);
+        }
+        else
+            System.out.println("Workshop is full");
+    }
+
+
+    public AbritaryVehicle unLoad(AbritaryVehicle c)
     {
 
     }

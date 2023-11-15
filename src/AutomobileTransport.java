@@ -55,21 +55,7 @@ public class AutomobileTransport extends Truck
     @Override
     public void move()
     {
-        switch (((currentDirection % 4) + 4) % 4)    //converts negative modulus to positive
-        {
-            case 0: //0 is NORTH
-                yPosition += currentSpeed;
-                break;
-            case 1: //1 is EAST
-                xPosition += currentSpeed;
-                break;
-            case 2: //2 is SOUTH
-                yPosition -= currentSpeed;
-                break;
-            case 3: //3 is WEST
-                xPosition -= currentSpeed;
-                break;
-        }
+        super.move();
         carOnTruckMover();
     }
 
