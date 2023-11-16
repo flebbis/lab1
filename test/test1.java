@@ -283,6 +283,7 @@ public class test1
         System.out.println(loader.storage[0]);
         assertTrue(loader.storage[0] == null);
     }
+
     @Test
     public void getStorageTest()
     {
@@ -347,11 +348,12 @@ public class test1
     }
 
     @Test
-    public void scaniarampchangewhenmovetest()
+    public void scaniaRampChangeWhenMoveTest()
     {
         scania.gas(1);
         scania.flatbedUp(70);
     }
+
     @Test
     public void workshoploadtest()
     {
@@ -377,7 +379,7 @@ public class test1
     @Test
     public void workshopUnloadGeneralTest()
     {
-        Workshop<Saab95> workshop = new Workshop<Saab95>(20);
+        Workshop<Vehicle> workshop = new Workshop<Vehicle>(20);
 
         Saab95 saab2 = new Saab95();
         workshop.load(saab);
@@ -390,7 +392,7 @@ public class test1
         System.out.println(workshop.getVehicles());
     }
     @Test
-    public void allLines() // "abomination"
+    public void allLines()
     {
         Workshop<Vehicle> workshopers = new Workshop(0);
         Saab95 saab1 = new Saab95();

@@ -51,7 +51,6 @@ public class AutomobileTransport extends Truck
         }
     }
 
-
     @Override
     public void move()
     {
@@ -71,4 +70,3 @@ public class AutomobileTransport extends Truck
         }
     }
 }
-

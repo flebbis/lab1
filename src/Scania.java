@@ -31,6 +31,4 @@ public class Scania extends Truck
             System.out.println("Stop the truck before trying to unload");
         }
     }
-
-
 }
