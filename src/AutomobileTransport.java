@@ -23,7 +23,7 @@ public class AutomobileTransport extends Truck
 
     public void load(Car car)
     {
-        if (getCurrentDegree() == 70 && Math.sqrt((Math.pow(car.getxPosition() - this.getxPosition(), 2) + (Math.pow(car.getyPosition() - this.getyPosition(), 2)))) < 1)
+        if (getCurrentDegree() == 70 && Math.sqrt((Math.pow(car.getxPosition() - this.getxPosition(), 2) + (Math.pow(car.getyPosition() - this.getyPosition(), 2)))) < 1) // Check if the distance between the automobie transport and the car is at a suitable distance
         {
             for (int i = 0; i < storageCapacity; i++)
             {
@@ -31,6 +31,7 @@ public class AutomobileTransport extends Truck
                 {
                     storage[i] = car;
                     carOnTruckMover(); //Så bilens position uppdateras
+                    break;
                 }
             }
         }
@@ -44,8 +45,9 @@ public class AutomobileTransport extends Truck
             {
                 if (storage[i] != null)
                 {
-                    storage[i].setyPosition(this.getyPosition() - 1);
+                    storage[i].setyPosition(this.getyPosition() - (1 + i));
                     storage[i] = null;
+                    break;
                 }
             }
         }

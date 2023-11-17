@@ -1,9 +1,11 @@
 import java.awt.*;
+import java.util.Stack;
 
 public abstract class Truck extends Vehicle
 {
     protected double currentDegree;
     protected Car[] storage;
+//    protected Stack<Car> storage;
     protected final int storageCapacity;
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName, int load)

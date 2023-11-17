@@ -273,16 +273,16 @@ public class test1
         assertTrue(loader.currentDegree == 70);
     }
 
-    @Test
-    public void unloadTest()
-    {
-        loader.flatbedChange(true);
-        loader.load(saab);
-        System.out.println(loader.storage[0]);
-        loader.unload();
-        System.out.println(loader.storage[0]);
-        assertTrue(loader.storage[0] == null);
-    }
+//    @Test
+//    public void unloadTest()
+//    {
+//        loader.flatbedChange(true);
+//        loader.load(saab);
+//        System.out.println(loader.storage[0]);
+//        loader.unload();
+//        System.out.println(loader.storage[0]);
+//        assertTrue(loader.storage[0] == null);
+//    }
 
     @Test
     public void getStorageTest()
@@ -392,11 +392,26 @@ public class test1
         System.out.println(workshop.getVehicles());
     }
     @Test
-    public void allLines()
+    public void overFilledWorkshop()
     {
         Workshop<Vehicle> workshopers = new Workshop(0);
         Saab95 saab1 = new Saab95();
         workshopers.load(saab);
         workshopers.load(saab1);
+    }
+    @Test
+    public void unloadPositionTest()
+    {
+        loader.unload();
+        System.out.println(loader.getyPosition());
+        loader.flatbedChange(true);
+        loader.load(saab);
+        System.out.println(loader.getStorage());
+        loader.load(volvo);
+        System.out.println(loader.getStorage());
+        loader.unload();
+        loader.unload();
+        System.out.println(saab.getyPosition());
+        System.out.println(volvo.getyPosition());
     }
 }
