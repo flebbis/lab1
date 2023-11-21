@@ -142,5 +142,7 @@ public abstract class Vehicle implements Movable
                 System.out.println("Amount out of range");
             }
         }
+
+        public String getModelName(){return this.modelName;}
     }
 
