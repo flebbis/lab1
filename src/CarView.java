@@ -17,6 +17,7 @@ public class CarView extends JFrame{
     private static final int X = 800;
     private static final int Y = 800;
 
+
     // The controller member
     CarController carC;
 
@@ -125,6 +126,55 @@ public class CarView extends JFrame{
                                      }
 
         );
+
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {   for (Vehicle saab : carC.vehicles)
+            {
+                if (saab instanceof Saab95)
+                {
+                    ((Saab95) saab).setTurboOn();
+                }
+            }
+            }
+        });
+
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {    for (Vehicle saab : carC.vehicles)
+            {
+                if (saab instanceof Saab95)
+                {
+                    ((Saab95) saab).setTurboOff();
+                }
+            }
+            }
+        });
+
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Vehicle car : carC.vehicles)
+                {
+                    if (car instanceof Scania)
+                    {
+                        ((Scania) car).flatbedUp(70);
+                    }
+                }
+            }
+        });
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Vehicle car : carC.vehicles)
+                {
+                    if (car instanceof Scania)
+                    {
+                        ((Scania) car).flatbedDown(0);
+                    }
+                }
+            }
+        });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
