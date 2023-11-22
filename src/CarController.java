@@ -52,7 +52,51 @@ public class CarController {
                 frame.drawPanel.moveit(x, y, vehicles);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
+
+                checkOutOfBounds(vehicle);
             }
+
+        }
+    }
+
+    private void checkOutOfBounds(Vehicle vehicle)
+    {
+        Boolean outOfBoundNorth = vehicle.getyPosition() > 560;
+        Boolean outOfBoundSouth = vehicle.getyPosition() < 0;
+        Boolean outOfBoundEast = vehicle.getxPosition() > 800;
+        Boolean outOfBoundWest = vehicle.getxPosition() < 0;
+
+        if (outOfBoundNorth)
+        {
+            vehicle.stopEngine();
+            vehicle.turnLeft();
+            vehicle.turnLeft();
+            vehicle.setyPosition(559);
+            vehicle.startEngine();
+        }
+        else if (outOfBoundSouth)
+        {
+            vehicle.stopEngine();
+            vehicle.turnLeft();
+            vehicle.turnLeft();
+            vehicle.setyPosition(1);
+            vehicle.startEngine();
+        }
+        else if (outOfBoundEast)
+        {
+            vehicle.stopEngine();
+            vehicle.turnLeft();
+            vehicle.turnLeft();
+            vehicle.setxPosition(799);
+            vehicle.startEngine();
+        }
+        if (outOfBoundWest)
+        {
+            vehicle.stopEngine();
+            vehicle.turnLeft();
+            vehicle.turnLeft();
+            vehicle.setxPosition(1);
+            vehicle.startEngine();
         }
     }
 
