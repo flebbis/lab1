@@ -8,12 +8,18 @@ public class test1
 
     private Saab95 saab;
     private Volvo240 volvo;
+    private Scania scania;
+    private AutomobileTransport loader;
+    private Workshop<Saab95> workshop;
 
     @Before
     public void init()
     {
         saab = new Saab95();
         volvo = new Volvo240();
+        scania = new Scania();
+        loader = new AutomobileTransport();
+        workshop = new Workshop(20);
     }
 
     @Test
@@ -210,5 +216,202 @@ public class test1
     public void getYPositionTest()
     {
        assertTrue(saab.getyPosition() == 0);
+    }
+
+    @Test
+    public void tiltUpFlatbedTest()
+    {
+        scania.flatbedUp(75);
+        scania.flatbedUp(30);
+        assertTrue(scania.getCurrentDegree() == 30);
+    }
+    @Test
+    public void tiltUpFlatbedTestFail()
+    {
+        scania.flatbedUp(65);
+        scania.incrementSpeed(0.5);
+        assertTrue(scania.getCurrentSpeed() == 0);
+    }
+    @Test
+    public void tiltDownFlatbedTest()
+    {
+        scania.flatbedUp(45);
+        scania.flatbedDown(30);
+        assertTrue(scania.getCurrentDegree() == 15);
+    }
+    @Test
+    public void incrementSpeedScaniaTest()
+    {
+        scania.gas(1);
+        System.out.println(scania.getCurrentSpeed());
+        assertTrue(scania.getCurrentSpeed() == scania.speedFactor());
+    }
+    @Test
+    public void decrementSpeedScaniaTest()
+    {
+        scania.gas(1);
+        scania.gas(1);
+        scania.brake(1);
+        System.out.println(scania.getCurrentSpeed());
+        assertTrue(scania.getCurrentSpeed() == 4);
+    }
+    @Test
+    public void loadTest()
+    {
+        loader.currentDegree = 70; //så vi kan lasta
+        loader.load(saab);
+        System.out.println(loader.storage[0]);
+        assertTrue(loader.storage[0] == saab);
+    }
+
+    @Test
+    public void flatbedChange()
+    {
+        loader.flatbedChange(true);
+        loader.flatbedChange(false);
+        loader.flatbedChange(true);
+        assertTrue(loader.currentDegree == 70);
+    }
+
+//    @Test
+//    public void unloadTest()
+//    {
+//        loader.flatbedChange(true);
+//        loader.load(saab);
+//        System.out.println(loader.storage[0]);
+//        loader.unload();
+//        System.out.println(loader.storage[0]);
+//        assertTrue(loader.storage[0] == null);
+//    }
+
+    @Test
+    public void getStorageTest()
+    {
+        loader.load(saab);
+        assertTrue(loader.getStorage() == loader.storage);
+    }
+
+    @Test
+    public void moveNegativeXTestAutomobile()
+    {
+        loader.flatbedChange(true);
+        loader.load(saab);
+        loader.load(volvo);
+        loader.turnLeft();
+        loader.startEngine();
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        System.out.println(loader.xPosition);
+        System.out.println(saab.xPosition);
+        assertTrue(saab.getxPosition() == loader.xPosition);
+    }
+
+    @Test
+    public void movePosXTestAutomobile()
+    {
+        loader.turnRight();
+        loader.startEngine();
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        assertTrue(loader.xPosition == loader.getCurrentSpeed());
+    }
+
+    @Test
+    public void moveNegativeYTestAutomobile()
+    {
+        loader.turnLeft();
+        loader.turnLeft();
+        loader.startEngine();
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        assertTrue(loader.yPosition == -(loader.getCurrentSpeed()));
+    }
+
+    @Test
+    public void movePosYTestAutomobile()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            this.loader.gas(1);
+        }
+        loader.move();
+        assertTrue(loader.yPosition == (loader.getCurrentSpeed()));
+    }
+
+    @Test
+    public void scaniaRampChangeWhenMoveTest()
+    {
+        scania.gas(1);
+        scania.flatbedUp(70);
+    }
+
+    @Test
+    public void workshoploadtest()
+    {
+        workshop.load(saab);
+        System.out.println(workshop.getVehicles());
+//        workshop.load(volvo);
+//        System.out.println(workshop.getVehicles());
+
+    }
+
+    @Test
+    public void workshopUnloadTest()
+    {
+        Saab95 saab2 = new Saab95();
+        workshop.load(saab);
+        workshop.load(saab2);
+        System.out.println(workshop.getVehicles());
+        workshop.unLoad(saab);
+        System.out.println(workshop.getVehicles());
+        workshop.unLoad(saab2);
+        System.out.println(workshop.getVehicles());
+    }
+    @Test
+    public void workshopUnloadGeneralTest()
+    {
+        Workshop<Vehicle> workshop = new Workshop<Vehicle>(20);
+
+        Saab95 saab2 = new Saab95();
+        workshop.load(saab);
+        workshop.load(saab2);
+        workshop.load(volvo);
+        System.out.println(workshop.getVehicles());
+        var o = workshop.unLoad(saab);
+        System.out.println(workshop.getVehicles());
+        System.out.println(workshop.unLoad(saab2));
+        System.out.println(workshop.getVehicles());
+    }
+    @Test
+    public void overFilledWorkshop()
+    {
+        Workshop<Vehicle> workshopers = new Workshop(0);
+        Saab95 saab1 = new Saab95();
+        workshopers.load(saab);
+        workshopers.load(saab1);
+    }
+    @Test
+    public void unloadPositionTest()
+    {
+        loader.unload();
+        System.out.println(loader.getyPosition());
+        loader.flatbedChange(true);
+        loader.load(saab);
+        System.out.println(loader.getStorage());
+        loader.load(volvo);
+        System.out.println(loader.getStorage());
+        loader.unload();
+        loader.unload();
+        System.out.println(saab.getyPosition());
+        System.out.println(volvo.getyPosition());
     }
 }
