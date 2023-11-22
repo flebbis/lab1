@@ -1,5 +1,6 @@
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public abstract class Vehicle implements Movable
 {
@@ -12,6 +13,7 @@ public abstract class Vehicle implements Movable
         protected int currentDirection;
         protected double xPosition;
         protected double yPosition;
+        protected BufferedImage vehicleImage;
 
 
         protected Vehicle(int nrDoors, double enginePower, Color color, String modelName)
@@ -99,7 +101,7 @@ public abstract class Vehicle implements Movable
 
         public void startEngine()
         {
-            currentSpeed = 0.1;
+            currentSpeed = 1;
         }
 
         public void stopEngine()

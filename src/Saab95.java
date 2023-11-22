@@ -25,11 +25,13 @@ public class Saab95 extends Car{
         return enginePower * 0.01 * turbo;
     }
 
-    protected void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount)
+    {
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
-    protected void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount)
+    {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 

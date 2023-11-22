@@ -36,7 +36,8 @@ public abstract class Truck extends Vehicle
     {
         if (currentDegree == 0)
         {
-            currentSpeed = getCurrentSpeed() + amount * speedFactor();
+            currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+
         }
         else
         {
