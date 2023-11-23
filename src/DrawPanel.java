@@ -53,7 +53,7 @@ public class DrawPanel extends JPanel{
         int separator = 0; //Separator separates cars along the x-axis
         for (Vehicle v : this.vehicles)
         {
-            g.drawImage(v.vehicleImage, ((int)Math.round(v.xPosition) + separator), (int)Math.round(v.yPosition), null);
+            g.drawImage(v.vehicleImage, (int)Math.round(v.xPosition), (int)(Math.round(v.yPosition) + separator), null);
             separator += 200;
         }
     }

@@ -101,7 +101,7 @@ public abstract class Vehicle implements Movable
 
         public void startEngine()
         {
-            currentSpeed = 1;
+            currentSpeed = 0.1;
         }
 
         public void stopEngine()

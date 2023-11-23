@@ -171,9 +171,19 @@ public class CarView extends JFrame{
                 {
                     if (car instanceof Scania)
                     {
-                        ((Scania) car).flatbedDown(0);
+                        ((Scania) car).flatbedDown(70);
+                        System.out.println(((Scania) car).getCurrentDegree());
                     }
                 }
+            }
+        });
+
+        startButton.addActionListener(new ActionListener()
+                                      {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                carC.startEngine();
             }
         });
 

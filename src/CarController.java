@@ -61,43 +61,45 @@ public class CarController {
 
     private void checkOutOfBounds(Vehicle vehicle)
     {
-        Boolean outOfBoundNorth = vehicle.getyPosition() > 560;
-        Boolean outOfBoundSouth = vehicle.getyPosition() < 0;
-        Boolean outOfBoundEast = vehicle.getxPosition() > 800;
+        Boolean outOfBoundNorth = vehicle.getyPosition() < 0;
+        Boolean outOfBoundSouth = vehicle.getyPosition() > 500;
+        Boolean outOfBoundEast = vehicle.getxPosition() > 685;
         Boolean outOfBoundWest = vehicle.getxPosition() < 0;
 
         if (outOfBoundNorth)
         {
-            vehicle.stopEngine();
-            vehicle.turnLeft();
-            vehicle.turnLeft();
-            vehicle.setyPosition(559);
-            vehicle.startEngine();
+            hitWallVerticalReposition(vehicle, 0);
         }
         else if (outOfBoundSouth)
         {
-            vehicle.stopEngine();
-            vehicle.turnLeft();
-            vehicle.turnLeft();
-            vehicle.setyPosition(1);
-            vehicle.startEngine();
+            hitWallVerticalReposition(vehicle, 500);
         }
         else if (outOfBoundEast)
         {
-            vehicle.stopEngine();
-            vehicle.turnLeft();
-            vehicle.turnLeft();
-            vehicle.setxPosition(799);
-            vehicle.startEngine();
+            hitWallHorizontalReposition(vehicle, 685);
         }
-        if (outOfBoundWest)
+        else if (outOfBoundWest)
         {
-            vehicle.stopEngine();
-            vehicle.turnLeft();
-            vehicle.turnLeft();
-            vehicle.setxPosition(1);
-            vehicle.startEngine();
+            hitWallHorizontalReposition(vehicle, 0);
         }
+    }
+
+    private static void hitWallVerticalReposition(Vehicle vehicle, int position)
+    {
+        vehicle.stopEngine();
+        vehicle.turnLeft();
+        vehicle.turnLeft();
+        vehicle.setyPosition(position);
+        vehicle.startEngine();
+    }
+
+    private static void hitWallHorizontalReposition(Vehicle vehicle, int position)
+    {
+        vehicle.stopEngine();
+        vehicle.turnLeft();
+        vehicle.turnLeft();
+        vehicle.setxPosition(position);
+        vehicle.startEngine();
     }
 
     // Calls the gas method for each car once

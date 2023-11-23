@@ -11,7 +11,7 @@ public class Scania extends Truck
 
     public void flatbedDown(double amount)
     {
-        if (amount > 0 && (getCurrentDegree() - amount > 0))
+        if (amount > 0 && (getCurrentDegree() - amount >= 0))
         {
             currentDegree -= amount;
         }

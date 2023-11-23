@@ -414,4 +414,14 @@ public class test1
         System.out.println(saab.getyPosition());
         System.out.println(volvo.getyPosition());
     }
+    @Test
+    public void scaniafletbetlowertest()
+    {
+        scania.flatbedUp(70);
+        System.out.println(scania.getCurrentDegree());
+        scania.flatbedDown(30);
+        System.out.println(scania.getCurrentDegree());
+        assertTrue(scania.getCurrentDegree() == 40);
+
+    }
 }
