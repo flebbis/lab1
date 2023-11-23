@@ -117,6 +117,13 @@ public class CarController {
             vehicle.brake(brake);
         }
     }
+    void startEngine()
+    {
+        for (Vehicle vehicle : vehicles)
+        {
+            vehicle.startEngine();
+        }
+    }
     void stopEngine()
     {
         for (Vehicle vehicle : vehicles)

@@ -20,7 +20,7 @@ public abstract class Vehicle implements Movable
         {
             xPosition = 0;
             yPosition = 0;
-            currentDirection = 0;
+            currentDirection = 3;
             this.nrDoors = nrDoors;
             this.enginePower = enginePower;
             this.modelName = modelName;
