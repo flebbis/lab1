@@ -12,11 +12,11 @@ public class Volvo240 extends Car
         return enginePower * 0.01 * trimFactor;
     }
 
-    public void incrementSpeed(double amount) {
+    protected void incrementSpeed(double amount) {
         currentSpeed = Math.min((int)Math.round(getCurrentSpeed() + speedFactor() * amount), enginePower);
     }
 
-    public void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount){
         currentSpeed = Math.max((int)Math.round(getCurrentSpeed() - speedFactor() * amount), 0);
     }
 }
