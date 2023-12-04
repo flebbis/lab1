@@ -49,7 +49,7 @@ public class CarController {
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getxPosition());
                 int y = (int) Math.round(vehicle.getyPosition());
-                moveit(x, y, vehicles);
+                //moveit(x, y, vehicles); TOGS BORT VID LABB 4
                 // repaint() calls the paintComponent method of the panel
                 frame.drawVehiclesAndVehiclePanel.repaint();
 
@@ -106,7 +106,7 @@ public class CarController {
     void moveit(int x, int y, ArrayList<Vehicle> vehicles)
     {
         int i = 0;
-        for (Vehicle v : frame.drawVehiclesAndVehiclePanel.vehicles)
+        for (Vehicle v : this.vehicles)
         {
             v.xPosition = vehicles.get(i).xPosition;
             v.yPosition = vehicles.get(i).yPosition;

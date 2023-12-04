@@ -46,6 +46,7 @@ public abstract class Vehicle implements Movable
                     xPosition -= currentSpeed;
                     break;
             }
+            
         }
 
         @Override
