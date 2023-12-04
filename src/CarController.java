@@ -29,9 +29,9 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.vehicles.add(new Volvo240());
-        cc.vehicles.add(new Saab95());
-        cc.vehicles.add(new Scania());
+        cc.vehicles.add(VehicleFactory.createVolvo240());
+        cc.vehicles.add(VehicleFactory.createSaab95());
+        cc.vehicles.add(VehicleFactory.createScania());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);

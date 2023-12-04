@@ -49,7 +49,13 @@ public abstract class Truck extends Vehicle
     @Override
     protected void decrementSpeed(double amount)
     {
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        if (currentDegree == 0)
+        {
+            currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        }
+        else
+        {
+            System.out.println("lower the flatbed");
+        }
     }
-
 }
