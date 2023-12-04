@@ -217,9 +217,7 @@ public class CarController {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                for (Vehicle vehicle: vehicles) {
-                    vehicle.startEngine();
-                }
+               startEngine();
             }
         });
     }
