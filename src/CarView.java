@@ -2,8 +2,6 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -21,7 +19,7 @@ public class CarView extends JFrame{
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel;
+    DrawVehiclesAndVehiclePanel drawVehiclesAndVehiclePanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -43,7 +41,7 @@ public class CarView extends JFrame{
     // Constructor
     public CarView(String framename, CarController cc){
         this.carC = cc;
-        this.drawPanel = new DrawPanel(X, 500, carC.vehicles);
+        this.drawVehiclesAndVehiclePanel = new DrawVehiclesAndVehiclePanel(X, Y-300, carC.vehicles);
         initComponents(framename);
     }
 
@@ -55,7 +53,7 @@ public class CarView extends JFrame{
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-        this.add(drawPanel);
+        this.add(drawVehiclesAndVehiclePanel);
 
 
 

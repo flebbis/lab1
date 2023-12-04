@@ -51,7 +51,7 @@ public class CarController {
                 int y = (int) Math.round(vehicle.getyPosition());
                 moveit(x, y, vehicles);
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+                frame.drawVehiclesAndVehiclePanel.repaint();
 
                 checkOutOfBounds(vehicle);
             }
@@ -106,7 +106,7 @@ public class CarController {
     void moveit(int x, int y, ArrayList<Vehicle> vehicles)
     {
         int i = 0;
-        for (Vehicle v : frame.drawPanel.vehicles)
+        for (Vehicle v : frame.drawVehiclesAndVehiclePanel.vehicles)
         {
             v.xPosition = vehicles.get(i).xPosition;
             v.yPosition = vehicles.get(i).yPosition;
