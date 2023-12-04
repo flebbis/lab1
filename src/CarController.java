@@ -49,7 +49,7 @@ public class CarController {
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getxPosition());
                 int y = (int) Math.round(vehicle.getyPosition());
-                frame.drawPanel.moveit(x, y, vehicles);
+                moveit(x, y, vehicles);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
 
@@ -100,6 +100,18 @@ public class CarController {
         vehicle.turnLeft();
         vehicle.setxPosition(position);
         vehicle.startEngine();
+    }
+
+    
+    void moveit(int x, int y, ArrayList<Vehicle> vehicles)
+    {
+        int i = 0;
+        for (Vehicle v : frame.drawPanel.vehicles)
+        {
+            v.xPosition = vehicles.get(i).xPosition;
+            v.yPosition = vehicles.get(i).yPosition;
+            i++;
+        }
     }
 
     // Calls the gas method for each car once
