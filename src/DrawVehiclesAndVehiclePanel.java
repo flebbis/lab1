@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel{
+public class DrawVehiclesAndVehiclePanel extends JPanel{
 
     ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, ArrayList<Vehicle> vehicles)
+    public DrawVehiclesAndVehiclePanel(int x, int y, ArrayList<Vehicle> vehicles)
     {
         this.vehicles = vehicles;
         this.setDoubleBuffered(true);
@@ -21,7 +21,7 @@ public class DrawPanel extends JPanel{
         {
             for (Vehicle v : vehicles) //Dynamically inputs the correct image to the correct vehicle
             {
-                v.vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/" + v.getModelName() + ".jpg"));
+                v.vehicleImage = ImageIO.read(DrawVehiclesAndVehiclePanel.class.getResourceAsStream("pics/" + v.getModelName() + ".jpg"));
             }
         }
         catch (IOException ex)
