@@ -34,7 +34,7 @@ public class CarController {
         cc.vehicles.add(VehicleFactory.createScania());
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        cc.frame = new CarView("CarSim 1.0", cc.vehicles);
         cc.initButtons();
         // Start the timer
         cc.timer.start();
