@@ -155,14 +155,12 @@ public class CarController {
         });
 
         frame.stopButton.addActionListener(new ActionListener(){
-                                               @Override
-                                               public void actionPerformed(ActionEvent e)
-                                               {
-                                                   stopEngine();
-                                               }
-                                           }
-
-        );
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                stopEngine();
+            }
+        });
 
         frame.turboOnButton.addActionListener(new ActionListener() {
             @Override
