@@ -35,7 +35,7 @@ public class CarController {
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
-
+        cc.initButtons();
         // Start the timer
         cc.timer.start();
     }
@@ -49,7 +49,7 @@ public class CarController {
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getxPosition());
                 int y = (int) Math.round(vehicle.getyPosition());
-                frame.drawPanel.moveit(x, y, vehicles);
+                moveit(x, y, vehicles);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
 
@@ -102,6 +102,18 @@ public class CarController {
         vehicle.startEngine();
     }
 
+    
+    void moveit(int x, int y, ArrayList<Vehicle> vehicles)
+    {
+        int i = 0;
+        for (Vehicle v : frame.drawPanel.vehicles)
+        {
+            v.xPosition = vehicles.get(i).xPosition;
+            v.yPosition = vehicles.get(i).yPosition;
+            i++;
+        }
+    }
+
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
@@ -130,5 +142,85 @@ public class CarController {
         {
             vehicle.stopEngine();
         }
+    }
+    private void initButtons()
+    {
+        frame.gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {gas(frame.gasAmount);}
+        });
+        frame.brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){brake(frame.gasAmount);}
+        });
+
+        frame.stopButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                stopEngine();
+            }
+        });
+
+        frame.turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {   for (Vehicle saab : vehicles)
+            {
+                if (saab instanceof Saab95)
+                {
+                    ((Saab95) saab).setTurboOn();
+                }
+            }
+            }
+        });
+
+        frame.turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {    for (Vehicle saab : vehicles)
+            {
+                if (saab instanceof Saab95)
+                {
+                    ((Saab95) saab).setTurboOff();
+                }
+            }
+            }
+        });
+
+        frame.liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Vehicle car : vehicles)
+                {
+                    if (car instanceof Scania)
+                    {
+                        ((Scania) car).flatbedUp(70);
+                    }
+                }
+            }
+        });
+        frame.lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Vehicle car : vehicles)
+                {
+                    if (car instanceof Scania)
+                    {
+                        ((Scania) car).flatbedDown(70);
+                        System.out.println(((Scania) car).getCurrentDegree());
+                    }
+                }
+            }
+        });
+
+        frame.startButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                for (Vehicle vehicle: vehicles) {
+                    vehicle.startEngine();
+                }
+            }
+        });
     }
 }
