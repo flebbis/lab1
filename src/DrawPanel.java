@@ -1,7 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -10,17 +9,6 @@ import java.util.ArrayList;
 public class DrawPanel extends JPanel{
 
     ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-
-    void moveit(int x, int y, ArrayList<Vehicle> vehicles)
-    {
-        int i = 0;
-        for (Vehicle v : this.vehicles)
-        {
-            v.xPosition = vehicles.get(i).xPosition;
-            v.yPosition = vehicles.get(i).yPosition;
-            i++;
-        }
-    }
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y, ArrayList<Vehicle> vehicles)
