@@ -1,0 +1,12 @@
+Refaktoriseringsplan (todovariant)
+
+
+Flytta moveIt från DrawPanel till CarController
+
+Byt Namn på DrawPanel
+
+Skapa en Factory som skapar instanser av vehicles.
+
+Flytta alla ActionListeners om JButtons från CarView till CarController.
+
+Byt ut attributet som Carview har av CarController mot en lista med bilar. Låt Factory skapa bilar som läggs till i vehicleslistan för CarController och CarView. 
