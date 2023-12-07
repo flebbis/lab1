@@ -147,18 +147,18 @@ public class CarController {
     {
         frame.gasButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {gas(frame.gasAmount);}
+            public void actionPerformed(ActionEvent e) {TimerListener.gas(frame.gasAmount, vehicles);}
         });
         frame.brakeButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){brake(frame.gasAmount);}
+            public void actionPerformed(ActionEvent e){TimerListener.brake(frame.gasAmount, vehicles);}
         });
 
         frame.stopButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                stopEngine();
+               TimerListener.stopEngine(vehicles);
             }
         });
 
@@ -176,7 +176,7 @@ public class CarController {
 
         frame.turboOffButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {    for (Vehicle saab : vehicles)
+            public void actionPerformed(ActionEvent e) {for (Vehicle saab : vehicles)
             {
                 if (saab instanceof Saab95)
                 {
@@ -216,8 +216,7 @@ public class CarController {
         {
             @Override
             public void actionPerformed(ActionEvent e)
-            {
-               startEngine();
+            {TimerListener.startEngine(vehicles);
             }
         });
     }
