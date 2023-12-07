@@ -13,8 +13,8 @@ import java.util.ArrayList;
  **/
 
 public class CarView extends JFrame implements TimerObserver{
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int X = 1100;
+    private static final int Y = 1100;
 
 
     // The controller member
@@ -38,6 +38,8 @@ public class CarView extends JFrame implements TimerObserver{
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
+    JButton addARandomCar = new JButton("Add a random car");
+    JButton removeCar = new JButton("Remove a random car");
 
     // Constructor
     public CarView(String framename, ArrayList<Vehicle> vehicles){
@@ -86,6 +88,9 @@ public class CarView extends JFrame implements TimerObserver{
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addARandomCar, 6);
+        controlPanel.add(removeCar, 7);
+
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
