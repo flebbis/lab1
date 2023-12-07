@@ -46,7 +46,7 @@ public class DrawVehiclesAndVehiclePanel extends JPanel{
         for (Vehicle v : this.vehicles)
         {
             g.drawImage(v.vehicleImage, (int)Math.round(v.xPosition), (int)(Math.round(v.yPosition) + separator), null);
-            separator += 100;
+            separator += 80;
         }
     }
 }

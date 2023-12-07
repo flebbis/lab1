@@ -44,7 +44,7 @@ class TimerListener implements ActionListener {
     {
         Boolean outOfBoundNorth = vehicle.getyPosition() < 0;
         Boolean outOfBoundSouth = vehicle.getyPosition() > 500;
-        Boolean outOfBoundEast = vehicle.getxPosition() > 685;
+        Boolean outOfBoundEast = vehicle.getxPosition() > 985;
         Boolean outOfBoundWest = vehicle.getxPosition() < 0;
 
         if (outOfBoundNorth)
@@ -57,7 +57,7 @@ class TimerListener implements ActionListener {
         }
         else if (outOfBoundEast)
         {
-            hitWallHorizontalReposition(vehicle, 685);
+            hitWallHorizontalReposition(vehicle, 985);
         }
         else if (outOfBoundWest)
         {
@@ -125,6 +125,7 @@ class TimerListener implements ActionListener {
         }
     }
     public static void addARandomCar(ArrayList<Vehicle> vehicles){
+        if (vehicles.size() < 10)
         vehicles.add(VehicleFactory.createRandomVehicle());
     }
     public static void removeACar(ArrayList<Vehicle> vehicles){
