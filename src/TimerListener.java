@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
+
 
 /* Each step the TimerListener moves all the cars in the list and tells the
  * view to update its images. Change this method to your needs.
@@ -121,6 +123,15 @@ class TimerListener implements ActionListener {
         for (Vehicle vehicle : vehicles)
         {
             vehicle.stopEngine();
+        }
+    }
+    public static void addARandomCar(ArrayList<Vehicle> vehicles){
+        vehicles.add(VehicleFactory.createRandomVehicle());
+    }
+    public static void removeACar(ArrayList<Vehicle> vehicles){
+        if (vehicles.size() != 0){
+            Random randint = new Random();
+            vehicles.remove(randint.nextInt(vehicles.size()));
         }
     }
 }

@@ -17,6 +17,11 @@ public class DrawVehiclesAndVehiclePanel extends JPanel{
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.pink);
+
+        addImagesToCars(vehicles);
+    }
+
+    public void addImagesToCars(ArrayList<Vehicle> vehicles){
         try  // Prints an error message in case file is not found with a try/catch block
         {
             for (Vehicle v : vehicles) //Dynamically inputs the correct image to the correct vehicle
@@ -29,7 +34,6 @@ public class DrawVehiclesAndVehiclePanel extends JPanel{
             System.out.println("Case file is not found");
             ex.printStackTrace();
         }
-
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself

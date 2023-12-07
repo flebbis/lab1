@@ -121,7 +121,9 @@ public class CarView extends JFrame implements TimerObserver{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void actOnUpdate(){
+    public void actOnUpdate()
+    {
+        this.drawVehiclesAndVehiclePanel.addImagesToCars(vehicles);
         this.drawVehiclesAndVehiclePanel.repaint();
     }
 }
