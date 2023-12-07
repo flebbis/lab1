@@ -34,10 +34,9 @@ class TimerListener implements ActionListener {
             //moveit(x, y, vehicles); TOGS BORT VID LABB 4
             // repaint() calls the paintComponent method of the panel
             //carController.frame.drawVehiclesAndVehiclePanel.repaint();
-            observer.actOnUpdate();
             checkOutOfBounds(vehicle);
         }
-
+        observer.actOnUpdate();
     }
 
 
