@@ -16,7 +16,7 @@ public class CarController {
     private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+//    private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
@@ -25,125 +25,125 @@ public class CarController {
 
     //methods:
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-
-        cc.vehicles.add(VehicleFactory.createVolvo240());
-        cc.vehicles.add(VehicleFactory.createSaab95());
-        cc.vehicles.add(VehicleFactory.createScania());
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc.vehicles);
-        cc.initButtons();
-        // Start the timer
-        cc.timer.start();
-    }
+//    public static void main(String[] args) {
+//        // Instance of this class
+//        CarController cc = new CarController();
+//
+//        cc.vehicles.add(VehicleFactory.createVolvo240());
+//        cc.vehicles.add(VehicleFactory.createSaab95());
+//        cc.vehicles.add(VehicleFactory.createScania());
+//
+//        // Start a new view and send a reference of self
+//        cc.frame = new CarView("CarSim 1.0", cc.vehicles);
+//        cc.initButtons();
+//        // Start the timer
+//        cc.timer.start();
+//    }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
     * */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : vehicles) {
-                vehicle.move();
-                int x = (int) Math.round(vehicle.getxPosition());
-                int y = (int) Math.round(vehicle.getyPosition());
-                //moveit(x, y, vehicles); TOGS BORT VID LABB 4
-                // repaint() calls the paintComponent method of the panel
-                frame.drawVehiclesAndVehiclePanel.repaint();
+//    private class TimerListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            for (Vehicle vehicle : vehicles) {
+//                vehicle.move();
+//                int x = (int) Math.round(vehicle.getxPosition());
+//                int y = (int) Math.round(vehicle.getyPosition());
+//                //moveit(x, y, vehicles); TOGS BORT VID LABB 4
+//                // repaint() calls the paintComponent method of the panel
+//                frame.drawVehiclesAndVehiclePanel.repaint();
+//
+//                checkOutOfBounds(vehicle);
+//            }
+//
+//        }
+//    }
 
-                checkOutOfBounds(vehicle);
-            }
-
-        }
-    }
-
-    private void checkOutOfBounds(Vehicle vehicle)
-    {
-        Boolean outOfBoundNorth = vehicle.getyPosition() < 0;
-        Boolean outOfBoundSouth = vehicle.getyPosition() > 500;
-        Boolean outOfBoundEast = vehicle.getxPosition() > 685;
-        Boolean outOfBoundWest = vehicle.getxPosition() < 0;
-
-        if (outOfBoundNorth)
-        {
-            hitWallVerticalReposition(vehicle, 0);
-        }
-        else if (outOfBoundSouth)
-        {
-            hitWallVerticalReposition(vehicle, 500);
-        }
-        else if (outOfBoundEast)
-        {
-            hitWallHorizontalReposition(vehicle, 685);
-        }
-        else if (outOfBoundWest)
-        {
-            hitWallHorizontalReposition(vehicle, 0);
-        }
-    }
-
-    private static void hitWallVerticalReposition(Vehicle vehicle, int position)
-    {
-        vehicle.stopEngine();
-        vehicle.turnLeft();
-        vehicle.turnLeft();
-        vehicle.setyPosition(position);
-        vehicle.startEngine();
-    }
-
-    private static void hitWallHorizontalReposition(Vehicle vehicle, int position)
-    {
-        vehicle.stopEngine();
-        vehicle.turnLeft();
-        vehicle.turnLeft();
-        vehicle.setxPosition(position);
-        vehicle.startEngine();
-    }
-
-    
-    void moveit(int x, int y, ArrayList<Vehicle> vehicles)
-    {
-        int i = 0;
-        for (Vehicle v : this.vehicles)
-        {
-            v.xPosition = vehicles.get(i).xPosition;
-            v.yPosition = vehicles.get(i).yPosition;
-            i++;
-        }
-    }
-
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles)
-        {
-            vehicle.gas(gas);
-        }
-    }
-    void brake(int amount){
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles)
-        {
-            vehicle.brake(brake);
-        }
-    }
-    void startEngine()
-    {
-        for (Vehicle vehicle : vehicles)
-        {
-            vehicle.startEngine();
-        }
-    }
-    void stopEngine()
-    {
-        for (Vehicle vehicle : vehicles)
-        {
-            vehicle.stopEngine();
-        }
-    }
-    private void initButtons()
+//    private void checkOutOfBounds(Vehicle vehicle)
+//    {
+//        Boolean outOfBoundNorth = vehicle.getyPosition() < 0;
+//        Boolean outOfBoundSouth = vehicle.getyPosition() > 500;
+//        Boolean outOfBoundEast = vehicle.getxPosition() > 685;
+//        Boolean outOfBoundWest = vehicle.getxPosition() < 0;
+//
+//        if (outOfBoundNorth)
+//        {
+//            hitWallVerticalReposition(vehicle, 0);
+//        }
+//        else if (outOfBoundSouth)
+//        {
+//            hitWallVerticalReposition(vehicle, 500);
+//        }
+//        else if (outOfBoundEast)
+//        {
+//            hitWallHorizontalReposition(vehicle, 685);
+//        }
+//        else if (outOfBoundWest)
+//        {
+//            hitWallHorizontalReposition(vehicle, 0);
+//        }
+//    }
+//
+//    private static void hitWallVerticalReposition(Vehicle vehicle, int position)
+//    {
+//        vehicle.stopEngine();
+//        vehicle.turnLeft();
+//        vehicle.turnLeft();
+//        vehicle.setyPosition(position);
+//        vehicle.startEngine();
+//    }
+//
+//    private static void hitWallHorizontalReposition(Vehicle vehicle, int position)
+//    {
+//        vehicle.stopEngine();
+//        vehicle.turnLeft();
+//        vehicle.turnLeft();
+//        vehicle.setxPosition(position);
+//        vehicle.startEngine();
+//    }
+//
+//
+//    void moveit(int x, int y, ArrayList<Vehicle> vehicles)
+//    {
+//        int i = 0;
+//        for (Vehicle v : this.vehicles)
+//        {
+//            v.xPosition = vehicles.get(i).xPosition;
+//            v.yPosition = vehicles.get(i).yPosition;
+//            i++;
+//        }
+//    }
+//
+//    // Calls the gas method for each car once
+//    void gas(int amount) {
+//        double gas = ((double) amount) / 100;
+//        for (Vehicle vehicle : vehicles)
+//        {
+//            vehicle.gas(gas);
+//        }
+//    }
+//    void brake(int amount){
+//        double brake = ((double) amount) / 100;
+//        for (Vehicle vehicle : vehicles)
+//        {
+//            vehicle.brake(brake);
+//        }
+//    }
+//    void startEngine()
+//    {
+//        for (Vehicle vehicle : vehicles)
+//        {
+//            vehicle.startEngine();
+//        }
+//    }
+//    void stopEngine()
+//    {
+//        for (Vehicle vehicle : vehicles)
+//        {
+//            vehicle.stopEngine();
+//        }
+//    }
+    public void initButtons()
     {
         frame.gasButton.addActionListener(new ActionListener() {
             @Override
