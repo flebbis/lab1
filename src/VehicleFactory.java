@@ -16,4 +16,22 @@ public class VehicleFactory {
         return new Scania();
     }
 
+    public static Vehicle createRandomVehicle()
+    {
+        Random randomInt = new Random();
+        int pickedCar = randomInt.nextInt(3);
+
+        switch (pickedCar){
+            case 0:
+                return createSaab95();
+            case 1:
+                return createVolvo240();
+            case 2:
+                return createScania();
+
+        }
+
+        return new Scania();
+    }
+
 }
