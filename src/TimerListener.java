@@ -4,18 +4,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-
-/* Each step the TimerListener moves all the cars in the list and tells the
- * view to update its images. Change this method to your needs.
- * */
 class TimerListener implements ActionListener {
-    //private final CarController carController;
-
     private final int delay = 50;
-
     private ArrayList<Vehicle> vehicles;
     public TimerObserver observer;
-
 
 
     public TimerListener(TimerObserver observer, ArrayList<Vehicle> vehicles)
@@ -31,14 +23,10 @@ class TimerListener implements ActionListener {
             vehicle.move();
             int x = (int) Math.round(vehicle.getxPosition());
             int y = (int) Math.round(vehicle.getyPosition());
-            //moveit(x, y, vehicles); TOGS BORT VID LABB 4
-            // repaint() calls the paintComponent method of the panel
-            //carController.frame.drawVehiclesAndVehiclePanel.repaint();
             checkOutOfBounds(vehicle);
         }
         observer.actOnUpdate();
     }
-
 
     private void checkOutOfBounds(Vehicle vehicle)
     {
@@ -124,9 +112,10 @@ class TimerListener implements ActionListener {
             vehicle.stopEngine();
         }
     }
-    public static void addARandomCar(ArrayList<Vehicle> vehicles){
+    public static void addARandomCar(ArrayList<Vehicle> vehicles)
+    {
         if (vehicles.size() < 10)
-        vehicles.add(VehicleFactory.createRandomVehicle());
+            vehicles.add(VehicleFactory.createRandomVehicle());
     }
     public static void removeACar(ArrayList<Vehicle> vehicles){
         if (vehicles.size() != 0){

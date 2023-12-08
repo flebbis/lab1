@@ -4,20 +4,10 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.ArrayList;
 
-/**
- * This class represents the full view of the MVC pattern of your car simulator.
- * It initializes with being center on the screen and attaching it's controller in it's state.
- * It communicates with the Controller by calling methods of it when an action fires of in
- * each of it's components.
- * TODO: Write more actionListeners and wire the rest of the buttons
- **/
-
 public class CarView extends JFrame implements TimerObserver{
     private static final int X = 1100;
     private static final int Y = 1100;
 
-
-    // The controller member
     ArrayList<Vehicle> vehicles;
 
     DrawVehiclesAndVehiclePanel drawVehiclesAndVehiclePanel;
@@ -49,7 +39,6 @@ public class CarView extends JFrame implements TimerObserver{
     }
 
     // Sets everything in place and fits everything
-    // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
 
         this.setTitle(title);
@@ -57,7 +46,6 @@ public class CarView extends JFrame implements TimerObserver{
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawVehiclesAndVehiclePanel);
-
 
 
         SpinnerModel spinnerModel =
