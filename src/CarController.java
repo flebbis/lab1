@@ -1,8 +1,6 @@
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -13,23 +11,30 @@ import java.util.Random;
 public class CarController {
     // member fields:
 
-    Random randint = new Random();
-    CarView frame;
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private CarView frame;
+    private ArrayList<Vehicle> vehicles;
+
+    public CarController(ArrayList<Vehicle> vehicles, CarView frame)
+    {
+        this.vehicles = vehicles;
+        this.frame = frame;
+    }
 
     public void initButtons()
     {
         frame.addGasButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            {TimerListener.gas(frame.gasAmount, vehicles);}
+            {
+                Model.gas(frame.gasAmount, vehicles);}
             }
         });
 
         frame.addBrakeButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                {TimerListener.brake(frame.gasAmount, vehicles);}
+                {
+                    Model.brake(frame.gasAmount, vehicles);}
             }
         });
 
@@ -89,27 +94,27 @@ public class CarController {
         frame.addStartButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TimerListener.startEngine(vehicles);
+                Model.startEngine(vehicles);
             }
         });
 
         frame.addStopButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TimerListener.stopEngine(vehicles);
+                Model.stopEngine(vehicles);
             }
         });
 
         frame.addAddARandomCarButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TimerListener.addARandomCar(vehicles);
+                Model.addARandomCar(vehicles);
             }
         });
         frame.addRemoveCarButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TimerListener.removeACar(vehicles);
+                Model.removeACar(vehicles);
             }
         });
     }

@@ -4,19 +4,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-class TimerListener implements ActionListener {
+class Model implements ActionListener {
     private final int delay = 50;
     private ArrayList<Vehicle> vehicles;
-    public TimerObserver observer;
+    private TimerObserver observer;
 
-
-    public TimerListener(TimerObserver observer, ArrayList<Vehicle> vehicles)
+    public Model(TimerObserver observer, ArrayList<Vehicle> vehicles)
     {
         this.observer = observer;
         this.vehicles = vehicles;
     }
-
-    private Timer timer = new Timer(delay, this);
 
     public void actionPerformed(ActionEvent e) {
         for (Vehicle vehicle : this.vehicles) {

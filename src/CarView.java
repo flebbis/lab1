@@ -9,16 +9,14 @@ public class CarView extends JFrame implements TimerObserver{
     private static final int X = 1100;
     private static final int Y = 1100;
 
-    ArrayList<Vehicle> vehicles;
+    private ArrayList<Vehicle> vehicles;
+    private DrawVehiclesAndVehiclePanel drawVehiclesAndVehiclePanel;
 
-    DrawVehiclesAndVehiclePanel drawVehiclesAndVehiclePanel;
-
-    JPanel controlPanel = new JPanel();
-
-    JPanel gasPanel = new JPanel();
-    JSpinner gasSpinner = new JSpinner();
+    private JPanel controlPanel = new JPanel();
+    private JPanel gasPanel = new JPanel();
+    private JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
-    JLabel gasLabel = new JLabel("Amount of gas");
+    private JLabel gasLabel = new JLabel("Amount of gas");
 
     private JButton gasButton = new JButton("Gas");
     private JButton brakeButton = new JButton("Brake");
