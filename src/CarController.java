@@ -19,48 +19,47 @@ public class CarController {
 
     public void initButtons()
     {
-        frame.gasButton.addActionListener(new ActionListener() {
+        frame.addGasButtonListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {TimerListener.gas(frame.gasAmount, vehicles);}
-        });
-        frame.brakeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){TimerListener.brake(frame.gasAmount, vehicles);}
-        });
-
-        frame.stopButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-               TimerListener.stopEngine(vehicles);
+            public void actionPerformed(ActionEvent e) {
+            {TimerListener.gas(frame.gasAmount, vehicles);}
             }
         });
 
-        frame.turboOnButton.addActionListener(new ActionListener() {
+        frame.addBrakeButtonListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {   for (Vehicle saab : vehicles)
-            {
-                if (saab instanceof Saab95)
+            public void actionPerformed(ActionEvent e) {
+                {TimerListener.brake(frame.gasAmount, vehicles);}
+            }
+        });
+
+        frame.addTurboOnButtonListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Vehicle saab : vehicles)
                 {
-                    ((Saab95) saab).setTurboOn();
+                    if (saab instanceof Saab95)
+                    {
+                        ((Saab95) saab).setTurboOn();
+                    }
                 }
             }
-            }
         });
 
-        frame.turboOffButton.addActionListener(new ActionListener() {
+        frame.addTurboOffButtonListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {for (Vehicle saab : vehicles)
-            {
-                if (saab instanceof Saab95)
+            public void actionPerformed(ActionEvent e) {
+                for (Vehicle saab : vehicles)
                 {
-                    ((Saab95) saab).setTurboOff();
+                    if (saab instanceof Saab95)
+                    {
+                        ((Saab95) saab).setTurboOff();
+                    }
                 }
             }
-            }
         });
 
-        frame.liftBedButton.addActionListener(new ActionListener() {
+        frame.addLiftBedButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (Vehicle car : vehicles)
@@ -71,8 +70,10 @@ public class CarController {
                     }
                 }
             }
+
         });
-        frame.lowerBedButton.addActionListener(new ActionListener() {
+
+        frame.addLowerBedButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (Vehicle car : vehicles)
@@ -80,30 +81,35 @@ public class CarController {
                     if (car instanceof Scania)
                     {
                         ((Scania) car).flatbedDown(70);
-                        System.out.println(((Scania) car).getCurrentDegree());
                     }
                 }
             }
         });
 
-        frame.startButton.addActionListener(new ActionListener()
-        {
+        frame.addStartButtonListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {TimerListener.startEngine(vehicles);
+            public void actionPerformed(ActionEvent e) {
+                TimerListener.startEngine(vehicles);
             }
         });
-        frame.addARandomCar.addActionListener(new ActionListener() {
+
+        frame.addStopButtonListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
+                TimerListener.stopEngine(vehicles);
+            }
+        });
+
+        frame.addAddARandomCarButtonListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 TimerListener.addARandomCar(vehicles);
             }
         });
-        frame.removeCar.addActionListener(new ActionListener() {
+        frame.addRemoveCarButtonListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               TimerListener.removeACar(vehicles);
+                TimerListener.removeACar(vehicles);
             }
         });
     }

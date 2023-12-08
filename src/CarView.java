@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CarView extends JFrame implements TimerObserver{
@@ -26,16 +27,47 @@ public class CarView extends JFrame implements TimerObserver{
     JButton liftBedButton = new JButton("Scania Lift Bed");
     JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
-    JButton addARandomCar = new JButton("Add a random car");
-    JButton removeCar = new JButton("Remove a random car");
+    private JButton startButton = new JButton("Start all cars");
+    private JButton stopButton = new JButton("Stop all cars");
+    private JButton addARandomCar = new JButton("Add a random car");
+    private JButton removeCar = new JButton("Remove a random car");
 
     // Constructor
     public CarView(String framename, ArrayList<Vehicle> vehicles){
         this.vehicles = vehicles;
         this.drawVehiclesAndVehiclePanel = new DrawVehiclesAndVehiclePanel(X, Y-300, vehicles);
         initComponents(framename);
+    }
+
+    public void addGasButtonListener(ActionListener listener) {
+        gasButton.addActionListener(listener);
+    }
+    public void addBrakeButtonListener(ActionListener listener) {
+        brakeButton.addActionListener(listener);
+    }
+    public void addTurboOnButtonListener(ActionListener listener) {
+        turboOnButton.addActionListener(listener);
+    }
+    public void addTurboOffButtonListener(ActionListener listener) {
+        turboOffButton.addActionListener(listener);
+    }
+    public void addLiftBedButtonListener(ActionListener listener) {
+        liftBedButton.addActionListener(listener);
+    }
+    public void addLowerBedButtonListener(ActionListener listener) {
+        lowerBedButton.addActionListener(listener);
+    }
+    public void addStartButtonListener(ActionListener listener) {
+        startButton.addActionListener(listener);
+    }
+    public void addStopButtonListener(ActionListener listener) {
+        stopButton.addActionListener(listener);
+    }
+    public void addAddARandomCarButtonListener(ActionListener listener) {
+        addARandomCar.addActionListener(listener);
+    }
+    public void addRemoveCarButtonListener(ActionListener listener) {
+        removeCar.addActionListener(listener);
     }
 
     // Sets everything in place and fits everything
@@ -78,6 +110,8 @@ public class CarView extends JFrame implements TimerObserver{
         controlPanel.add(lowerBedButton, 5);
         controlPanel.add(addARandomCar, 6);
         controlPanel.add(removeCar, 7);
+
+
 
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
